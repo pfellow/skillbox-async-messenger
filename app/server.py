@@ -27,7 +27,7 @@ class ClientProtocol(asyncio.Protocol):
                         self.transport.write(
                             f"Логин {temp} занят, попробуйте другой".encode()
                         )
-                        self.transport.abort()
+                        self.transport.close()
                         break
                 else:
                     self.login = temp
