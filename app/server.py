@@ -44,8 +44,8 @@ class ClientProtocol(asyncio.Protocol):
         self.server.write_history(encoded)
 
         for client in self.server.clients:
-            if client.login != self.login:
-                client.transport.write(encoded)
+            #if client.login != self.login:
+            client.transport.write(encoded)
 
     def connection_made(self, transport: transports.Transport):
         self.transport = transport
